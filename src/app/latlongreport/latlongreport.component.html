@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Distance Covered Report</div>
+    <div class="panel-body">
+        <form #f="ngForm" novalidate >
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="name">From Date</label>
+                    <input type="date" class="form-control" name="fromdate" [ngModel]="reportmodel.fromdate|date:'yyyy-MM-dd'" 
+                    id="fromdate" (ngModelChange)="reportmodel.fromdate=$event" required>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="name">To Date</label>
+                    <input type="date" class="form-control" name="todate" [ngModel]="reportmodel.todate|date:'yyyy-MM-dd'" 
+                    id="todate" (ngModelChange)="reportmodel.todate=$event" required>
+                </div>
+
+            
+                <div class="col-md-2">
+                    <label for="name">Region</label>
+                    <select name="customer"  class="form-control" [(ngModel)]="reportmodel.region" (ngModelChange)="regionchange()" >    
+                        <option value=''>Please select Value</option>
+                        <option *ngFor="let ddlregion of ddlistreport.lstregionmast" [ngValue]="ddlregion.regioncode">
+                            {{ddlregion.regionname}}
+                         </option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="name">Location</label>
+                    <select name="customer"  class="form-control" [(ngModel)]="reportmodel.location"  >    
+                        <option value=''>Please select Value</option>
+                        <option *ngFor="let ddllocation of ddlistreport.lstlocationmast" [ngValue]="ddllocation.locationcode">
+                            {{ddllocation.locationname}}
+                         </option>
+                    </select>
+                </div>
+            </div>
+        </form>   
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+      <div class="col-md-5"></div>
+      <div class="col-md-1">
+        <button type="submit" style="margin-bottom: 10px;margin-top: 15px" class="btn btn-success" (click)="reportsubmit()">Submit</button>
+      </div>
+    </div>  
+  </div>

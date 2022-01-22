@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="white">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>        
+    <h4>RCM Conveyance App</h4>            
+    <span class="example-spacer"></span>
+    <span flex></span>
+    <div style="font-size: 15px">
+        <mat-icon style="font-size: 25px">person</mat-icon>
+        {{ ID  }}      
+    </div>
+</mat-toolbar>
+<mat-drawer-container class="example-container" >
+<mat-drawer #drawer class="example-sidenav" mode="side" opened role="navigation"> 
+    <mat-nav-list>
+        <a mat-list-item [matMenuTriggerFor]="menu"  *ngIf="isLoggedIn | async">Masters</a>
+        <a mat-menu-item (click)="navlogin()" >Logout</a>
+    </mat-nav-list>
+    <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink='/latlong' >LatLong Exception Approval</a>
+        <a mat-menu-item routerLink='/latlongreport'>Latlong Report</a>
+    </mat-menu>
+</mat-drawer>>
+<mat-drawer-content>
+    <router-outlet></router-outlet>
+
+</mat-drawer-content>
+</mat-drawer-container>
+

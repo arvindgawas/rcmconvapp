@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //apiEndpoint: ' https://localhost:9001/api/v1/'
+  apiEndpoint:  'https://cmsliveuat.cms.com/rcmconvapi/api/v1/'
 };
 
 /*
